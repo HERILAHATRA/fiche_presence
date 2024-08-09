@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulation Excel et PDF</title>
+    <link rel="stylesheet" href="assets/css/bootstrapmin.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="excelFile">Upload Excel File</label>
+                <input type="file" class="form-control" id="excelFile" name="excelFile" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <div id="excel-data" class="mt-3"></div>
+        <div class="container mt-3">
+            <button id="save-pdf" class="btn btn-danger" style="display:none;">ENREGISTRE en PDF</button>
+        </div>
+    </div>
+
+    <!-- Modal for Signature -->
+    <div class="modal fade" id="signatureModal" tabindex="-1" role="dialog" aria-labelledby="signatureModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signatureModalLabel">Signature Électronique</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="signature-pad">
+                        <canvas width="400" height="200" style="border: 1px solid #000;"></canvas>
+                        <div>
+                            <button data-action="clear">répeter</button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="signature-image" name="signature-image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" id="save-signature">Sauvegarder la Signature</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/poppermin.js"></script>
+    <script src="assets/js/bootstrapmin.js"></script>
+    <script src="assets/js/signature_pad.js"></script>
+</body>
+</html>
